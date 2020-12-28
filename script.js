@@ -1,39 +1,15 @@
 // Utility functions
-const isNotNull = (str) => {
-  if (str === null) {
-    return false;
-  } else {
-    return true;
-  }
-};
+const isNotNull = (str) => str !== null;
 
-const hasRightLength = (word) => {
-  if (word.length < 9) {
-    return true;
-  } else {
-    return false;
-  }
-};
+const hasRightLength = (str) => isNotNull(str) && str.length <= 8;
 
-const hasUpperCaseCharacter = (str) => {
-  let arrayOfChars = [];
-  checkIfUpper = false;
+const hasUpperCaseCharacter = (str) =>
+  isNotNull(str) && str.toLowerCase() !== str;
 
-  for (i = 0; i < str.length; i++) {
-    arrayOfChars.push(str[i]);
-  }
+const hasLowerCaseCharacter = (str) =>
+  isNotNull(str) && str.toUpperCase() !== str;
 
-  arrayOfChars.forEach((char) => {
-    if (char != char.toUpperCase()) {
-      checkIfUpper = true;
-    }
-  });
-  return checkIfUpper;
-};
-
-const hasLowerCaseCharacter = (str) => str;
-
-const hasDigit = (str) => str;
+const hasDigit = (str) => /\d/.test(str);
 
 const minimumConditionsReached = (conditions) => {
   // conditions is an array of booleans
